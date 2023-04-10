@@ -688,6 +688,7 @@ uninstall(){
   fi
 
   rm -R $SCRIPTPATH/nginx*
+  rm $SCRIPTPATH/RPi-StreamBox.conf
 
   echo
   echo -e $GREEN "Uninstall complete!" $BLACK

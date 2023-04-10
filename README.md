@@ -8,7 +8,7 @@ You can also support me by sending a BitCoin donation to the following address:
 
 19JXFGfRUV4NedS5tBGfJhkfRrN2EQtxVo
 
-# Traefik Control
+# RPi-StreamBox Server
 Turn your Raspberry Pi into a multi-streaming box!
 
 # About
