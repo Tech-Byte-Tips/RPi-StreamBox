@@ -799,7 +799,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/youtube.conf"
     fi
-    sed -i "/YouTube/c\\YouTube=Yes" "RPi-StreamBox.conf"
+    sed -i "/YouTube/c\\YouTube=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Twitch
   if [ $PLATFORM == 2 ]; then
@@ -818,7 +818,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/twitch.conf"
     fi
-    sed -i "/Twitch/c\\Twitch=Yes" "RPi-StreamBox.conf"
+    sed -i "/Twitch/c\\Twitch=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Trovo
   if [ $PLATFORM == 3 ]; then
@@ -837,7 +837,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/trovo.conf"
     fi
-    sed -i "/Trovo/c\\Trovo=Yes" "RPi-StreamBox.conf"
+    sed -i "/Trovo/c\\Trovo=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Kick
   if [ $PLATFORM == 4 ]; then
@@ -856,7 +856,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/kick.conf"
     fi
-    sed -i "/Kick/c\\Kick=Yes" "RPi-StreamBox.conf"
+    sed -i "/Kick/c\\Kick=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Facebook
   if [ $PLATFORM == 5 ]; then
@@ -875,7 +875,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/facebook.conf"
     fi
-    sed -i "/Facebook/c\\Facebook=Yes" "RPi-StreamBox.conf"
+    sed -i "/Facebook/c\\Facebook=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Instagram
   if [ $PLATFORM == 6 ]; then
@@ -894,7 +894,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/instagram.conf"
     fi
-    sed -i "/Instagram/c\\Instagram=Yes" "RPi-StreamBox.conf"
+    sed -i "/Instagram/c\\Instagram=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   # Cloudflare
   if [ $PLATFORM == 7 ]; then
@@ -913,7 +913,7 @@ updatePlatform(){
       echo "    $STUNNELURL:443"
       sed -i "/connect=/c\\connect=$STUNNELURL:443" "/etc/stunnel/conf.d/cloudflare.conf"
     fi
-    sed -i "/Cloudflare/c\\Cloudflare=Yes" "RPi-StreamBox.conf"
+    sed -i "/Cloudflare/c\\Cloudflare=Yes" $SCRIPTPATH/RPi-StreamBox.conf
   fi
   
   echo -e $MAGENTA
