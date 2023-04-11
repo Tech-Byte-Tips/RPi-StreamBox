@@ -225,32 +225,29 @@ install(){
   echo
   echo -e $MAGENTA "Creating Nginx service definition ..." $BLACK
   echo
-  echo '[Unit]' > nginx.service
-  echo 'Description=A high performance web server and a reverse proxy server' >> nginx.service
-  echo 'After=network.target' >> nginx.service
-  echo ''>> nginx.service
-  echo '[Service]' >> nginx.service
-  echo 'Type=forking' >> nginx.service
-  echo 'PIDFile=/run/nginx.pid' >> nginx.service
-  echo "ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'" >> nginx.service
-  echo "ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'" >> nginx.service
-  echo "ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload" >> nginx.service
-  echo 'ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid' >> nginx.service
-  echo 'TimeoutStopSec=5' >> nginx.service
-  echo 'KillMode=mixed' >> nginx.service
-  echo ''>> nginx.service
-  echo '[Install]' >> nginx.service
-  echo 'WantedBy=multi-user.target' >> nginx.service
+  echo '[Unit]' > /etc/systemd/system/nginx.service
+  echo 'Description=A high performance web server and a reverse proxy server' >> /etc/systemd/system/nginx.service
+  echo 'After=network.target' >> /etc/systemd/system/nginx.service
+  echo ''>> /etc/systemd/system/nginx.service
+  echo '[Service]' >> /etc/systemd/system/nginx.service
+  echo 'Type=forking' >> /etc/systemd/system/nginx.service
+  echo 'PIDFile=/run/nginx.pid' >> /etc/systemd/system/nginx.service
+  echo "ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'" >> /etc/systemd/system/nginx.service
+  echo "ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'" >> /etc/systemd/system/nginx.service
+  echo "ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload" >> /etc/systemd/system/nginx.service
+  echo 'ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid' >> /etc/systemd/system/nginx.service
+  echo 'TimeoutStopSec=5' >> /etc/systemd/system/nginx.service
+  echo 'KillMode=mixed' >> /etc/systemd/system/nginx.service
+  echo ''>> /etc/systemd/system/nginx.service
+  echo '[Install]' >> /etc/systemd/system/nginx.service
+  echo 'WantedBy=multi-user.target' >> /etc/systemd/system/nginx.service
   
-  echo
-  echo -e $MAGENTA "Setting up Nginx service ..." $BLACK
-  echo
-  mv nginx.service /etc/systemd/system/
-
   echo
   echo -e $MAGENTA "Set Nginx service to autostart ..." $BLACK
   echo
   systemctl enable nginx.service > /dev/null & showSpinner
+
+  showHeader install
 
   ################### Part 4 - Creating Basic Config Files ###################
 
@@ -471,7 +468,7 @@ install(){
 
   read -p " Provide a secret username for the connections: " USER
   echo
-  read -s -p " Provide a secret password for the connections: [Must be pretty long or stunnel will not run] " PASS
+  read -s -p " Provide a secret password for the connections [Must be pretty long or stunnel will not run] : " PASS
   echo -e $MAGENTA
   echo " Creating psk-secret.txt file for the connections ..."
   echo
