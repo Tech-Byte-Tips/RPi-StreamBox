@@ -752,7 +752,7 @@ updatePlatform(){
   while [ $SECURE != 'y' ] && [ $SECURE != 'Y' ] && [ $SECURE != 'n' ] && [ $SECURE != 'N' ]
   do
     echo -e $RED "[!] - Invalid option provided!" $YELLOW
-    read -p " Is this a secure URL (RTMPS)? : [ y/n ] " SECURE
+    read -p " Is this a secure URL (RTMPS)? [ y/n ] :" SECURE
     echo
   done
   
