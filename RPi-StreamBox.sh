@@ -487,6 +487,12 @@ install(){
   echo 'Cloudflare=No' >> $SCRIPTPATH/RPi-StreamBox.conf
 
   echo
+  echo -e $MAGENTA "Making sure Nginx and Stunnel start on boot ..." $BLACK
+  echo
+  systemctl enable nginx
+  systemctl enable stunnel4
+  
+  echo
   echo -e $MAGENTA "Starting Nginx ..." $BLACK
   echo
   service nginx start > /dev/null & showSpinner
