@@ -46,6 +46,21 @@ The application allows you to:
 
     cd ~/RPi-StreamBox && chmod +x RPi-StreamBox.sh && sudo ./RPi-StreamBox.sh
 
+# How to fix issue with YouTube URL causing NginX to not auto start
+
+  1. Edit the Nginx service:
+
+     sudo systemctl edit nginx.service
+
+  2. Add the following entry:
+
+    [Service]
+    ExecStartPre=/bin/sleep 10
+    Restart=on-failure
+    RestartSec=5s
+
+  3. Reboot the system for changes to take effect
+
 # License
 
 All rights are reserved by Jorge Pabón.
